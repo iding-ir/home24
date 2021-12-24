@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { useTranslation } from "react-i18next";
 import AppBar from "@mui/material/AppBar";
-import LinearProgress from "@mui/material/LinearProgress";
+import Skeleton from "@mui/material/Skeleton";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import Toolbar from "@mui/material/Toolbar";
@@ -42,7 +42,7 @@ const Header = () => {
             <small> ({categories[0].articleCount})</small>
           </Box>
         ) : (
-          <LinearProgress sx={{ width: "100%" }} />
+          <Skeleton variant="text" height={25} sx={{ width: "100px" }} />
         )}
 
         <Box sx={styles.pusher}></Box>

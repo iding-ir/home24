@@ -5,8 +5,8 @@ import Drawer from "@mui/material/Drawer";
 import Toolbar from "@mui/material/Toolbar";
 import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
-import LinearProgress from "@mui/material/LinearProgress";
 import { useTranslation } from "react-i18next";
+import Skeleton from "@mui/material/Skeleton";
 
 import { useArticles } from "../../hooks/useArticles";
 import { AppStateContext } from "../../hooks/useAppState";
@@ -41,19 +41,23 @@ const Sidebar = () => {
 
       <Divider />
 
-      {categories?.length ? (
-        categories[0].childrenCategories.map(({ name, urlPath }) => {
-          return (
-            <Box sx={styles.link} key={urlPath}>
-              <ListItem button>
-                <ListItemText>{name}</ListItemText>
-              </ListItem>
-            </Box>
-          );
-        })
-      ) : (
-        <LinearProgress sx={{ margin: "1rem" }} />
-      )}
+      {categories?.length
+        ? categories[0].childrenCategories.map(({ name, urlPath }) => {
+            return (
+              <Box sx={styles.link} key={urlPath}>
+                <ListItem button>
+                  <ListItemText>{name}</ListItemText>
+                </ListItem>
+              </Box>
+            );
+          })
+        : Array(8).fill(
+            <Skeleton
+              variant="rectangular"
+              height={25}
+              sx={{ margin: "1rem", marginBottom: "0" }}
+            />
+          )}
     </>
   );
 

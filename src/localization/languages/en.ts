@@ -8,7 +8,7 @@ const localization = {
   Header: {
     search: "Search",
   },
-  sidebar: {
+  Sidebar: {
     title: "Categories",
   },
 };
