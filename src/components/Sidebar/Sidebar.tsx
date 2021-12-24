@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import { useContext } from "react";
 import Box from "@mui/material/Box";
 import Divider from "@mui/material/Divider";
 import Drawer from "@mui/material/Drawer";
@@ -13,7 +13,6 @@ import { useArticles } from "../../hooks/useArticles";
 import { AppStateContext } from "../../hooks/useAppState";
 import { ReactComponent as Logo } from "../../assets/images/icon-logo.svg";
 import { styles } from "./styles";
-import { useTheme } from "../Theme/useTheme";
 
 const Sidebar = () => {
   const { t } = useTranslation();
@@ -21,8 +20,6 @@ const Sidebar = () => {
   const { categories } = useArticles();
 
   const { appState, setAppState } = useContext(AppStateContext);
-
-  const { theme } = useTheme();
 
   const handleToggle = () => {
     setAppState({ ...appState, drawerOpen: !appState.drawerOpen });
@@ -32,10 +29,7 @@ const Sidebar = () => {
     <>
       <Toolbar sx={styles.title}>
         <Box sx={styles.logo}>
-          <Logo
-            stroke={theme.palette.primary.contrastText}
-            fill={theme.palette.primary.light}
-          />
+          <Logo />
         </Box>
 
         {t("Sidebar.title")}

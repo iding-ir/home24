@@ -1,4 +1,5 @@
 import axios from "axios";
+
 import { Category } from "../types";
 
 export const getCategories = async () => {

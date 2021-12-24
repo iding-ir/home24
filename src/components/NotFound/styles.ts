@@ -8,10 +8,16 @@ export const styles: Styles = {
     justifyContent: "center",
     alignItems: "center",
     height: "300px",
-    color: (theme) => theme.palette.grey[600],
+    color: (theme) =>
+      theme.palette.mode === "dark"
+        ? theme.palette.grey[400]
+        : theme.palette.grey[800],
 
     a: {
-      color: (theme) => theme.palette.grey[800],
+      color: (theme) =>
+        theme.palette.mode === "dark"
+          ? theme.palette.primary.light
+          : theme.palette.primary.dark,
       textDecoration: "none",
       fontSize: "1.2rem",
     },
@@ -19,7 +25,17 @@ export const styles: Styles = {
   text: {
     mr: 3,
     pr: 3,
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+    textAlign: "right",
     borderRight: (theme) => `1px solid ${theme.palette.grey[600]}`,
   },
-  back: {},
+  back: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+  },
 };

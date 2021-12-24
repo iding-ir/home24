@@ -30,18 +30,6 @@ export const useTheme = (defaultMode?: PaletteMode) => {
   }, [mode]);
 
   const theme = createTheme({
-    components: {
-      MuiOutlinedInput: {
-        styleOverrides: {
-          root: {
-            backgroundColor:
-              mode === "dark"
-                ? iThemeLight.palette.grey[900]
-                : iThemeLight.palette.grey[50],
-          },
-        },
-      },
-    },
     palette: {
       mode,
       primary: {

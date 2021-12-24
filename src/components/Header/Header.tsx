@@ -1,4 +1,4 @@
-import React, { useContext, ChangeEvent } from "react";
+import { useContext, ChangeEvent } from "react";
 import { useTranslation } from "react-i18next";
 import AppBar from "@mui/material/AppBar";
 import Skeleton from "@mui/material/Skeleton";
@@ -56,8 +56,6 @@ const Header = () => {
 
         <Box sx={styles.pusher}></Box>
 
-        <Theme />
-
         <Language />
 
         <TextField
@@ -67,6 +65,8 @@ const Header = () => {
           onChange={handleChangeSearch}
           color="secondary"
         />
+
+        <Theme />
       </Toolbar>
     </AppBar>
   );

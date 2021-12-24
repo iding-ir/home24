@@ -4,12 +4,15 @@ import { DRAWER_WIDTH } from "../../constants";
 export const styles: Styles = {
   link: {
     a: {
-      color: (theme) => theme.palette.grey[600],
+      color: (theme) =>
+        theme.palette.mode === "dark"
+          ? theme.palette.grey[400]
+          : theme.palette.grey[800],
       textDecoration: "none",
       fontSize: "1rem",
       "&.is-selected": {
         display: "block",
-        color: (theme) => theme.palette.secondary.main,
+        color: (theme) => theme.palette.primary.dark,
         borderLeft: (theme) => `3px solid ${theme.palette.primary.main}`,
       },
     },
@@ -25,6 +28,14 @@ export const styles: Styles = {
       width: "2.4rem",
       height: "2.4rem",
       margin: "0 1rem",
+      stroke: (theme) =>
+        theme.palette.mode === "dark"
+          ? theme.palette.primary.light
+          : theme.palette.primary.contrastText,
+      fill: (theme) =>
+        theme.palette.mode === "dark"
+          ? theme.palette.secondary.dark
+          : theme.palette.primary.light,
     },
   },
   nav: {

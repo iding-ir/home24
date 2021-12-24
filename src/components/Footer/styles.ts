@@ -12,6 +12,10 @@ export const styles: Styles = {
     alignItems: "center",
     textAlign: "center",
     flexShrink: "0",
+    color: (theme) =>
+      theme.palette.mode === "dark"
+        ? theme.palette.grey[400]
+        : theme.palette.grey[800],
     backgroundColor: (theme) => theme.palette.background.paper,
   },
 };
