@@ -1,5 +1,16 @@
 import { SxProps, Theme } from "@mui/material/styles";
 
+export interface IRoute {
+  key: string;
+  path: string;
+  element: ReactElement<any, string | JSXElementConstructor<any>>;
+  title?: string;
+}
+
+export interface IRoutes {
+  [key: string]: IRoute;
+}
+
 export type Category = {
   name: string;
   categoryArticles: CategoryArticle;
