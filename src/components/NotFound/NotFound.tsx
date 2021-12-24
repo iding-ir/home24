@@ -10,9 +10,9 @@ const NotFound = () => {
 
   return (
     <Box sx={styles.NotFound}>
-      <Box>{t("NotFound.text")}</Box>
+      <Box sx={styles.text}>{t("NotFound.text")}</Box>
 
-      <Box>
+      <Box sx={styles.back}>
         <Link to={URLS.HOME}> {t("NotFound.back")}</Link>
       </Box>
     </Box>

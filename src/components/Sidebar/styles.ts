@@ -8,7 +8,9 @@ export const styles: Styles = {
       textDecoration: "none",
       fontSize: "1rem",
       "&.is-selected": {
+        display: "block",
         color: (theme) => theme.palette.secondary.main,
+        borderLeft: (theme) => `3px solid ${theme.palette.primary.main}`,
       },
     },
   },
