@@ -9,14 +9,14 @@ import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 
 import { styles } from "./styles";
-import { LayoutContext } from "../../hooks/useLayout";
-import { ArticlesContext } from "../../hooks/useArticles";
+import { AppStateContext } from "../../hooks/useAppState";
+import { useArticles } from "../../hooks/useArticles";
 
 const Header = () => {
   const { t } = useTranslation();
 
-  const { setDrawerOpen } = useContext(LayoutContext);
-  const { categories } = useContext(ArticlesContext);
+  const { setDrawerOpen } = useContext(AppStateContext);
+  const { categories } = useArticles();
 
   const handleToggle = () => {
     setDrawerOpen(true);
@@ -35,7 +35,7 @@ const Header = () => {
           <MenuIcon />
         </IconButton>
 
-        {categories.length ? (
+        {categories?.length ? (
           <Box>
             {categories[0].name}
 

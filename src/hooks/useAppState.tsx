@@ -1,16 +1,16 @@
 import { useState, createContext } from "react";
 
-interface ILayoutContext {
+interface IAppStateContext {
   drawerOpen: boolean;
   setDrawerOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-export const LayoutContext = createContext<ILayoutContext>({
+export const AppStateContext = createContext<IAppStateContext>({
   drawerOpen: false,
   setDrawerOpen: () => {},
 });
 
-export const useLayout = () => {
+export const useAppState = () => {
   const [drawerOpen, setDrawerOpen] = useState(false);
 
   return { drawerOpen, setDrawerOpen };

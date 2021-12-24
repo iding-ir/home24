@@ -8,8 +8,8 @@ import ListItemText from "@mui/material/ListItemText";
 import LinearProgress from "@mui/material/LinearProgress";
 import { useTranslation } from "react-i18next";
 
-import { ArticlesContext } from "../../hooks/useArticles";
-import { LayoutContext } from "../../hooks/useLayout";
+import { useArticles } from "../../hooks/useArticles";
+import { AppStateContext } from "../../hooks/useAppState";
 import { ReactComponent as Logo } from "../../assets/images/icon-logo.svg";
 import { styles } from "./styles";
 import { useTheme } from "../Theme/useTheme";
@@ -17,8 +17,8 @@ import { useTheme } from "../Theme/useTheme";
 const Sidebar = () => {
   const { t } = useTranslation();
 
-  const { categories } = useContext(ArticlesContext);
-  const { drawerOpen, setDrawerOpen } = useContext(LayoutContext);
+  const { categories } = useArticles();
+  const { drawerOpen, setDrawerOpen } = useContext(AppStateContext);
 
   const { theme } = useTheme();
 
@@ -41,11 +41,11 @@ const Sidebar = () => {
 
       <Divider />
 
-      {categories.length ? (
+      {categories?.length ? (
         categories[0].childrenCategories.map(({ name, urlPath }) => {
           return (
-            <Box sx={styles.link}>
-              <ListItem button key={urlPath}>
+            <Box sx={styles.link} key={urlPath}>
+              <ListItem button>
                 <ListItemText>{name}</ListItemText>
               </ListItem>
             </Box>

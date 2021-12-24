@@ -1,22 +1,23 @@
 import React from "react";
 import { ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
+import { QueryClient, QueryClientProvider } from "react-query";
 
 import "../../localization";
 import Layout from "../Layout/Layout";
 import ArticleList from "../ArticleList/ArticleList";
 import { useTheme, ThemeContext } from "../Theme/useTheme";
-import { useArticles, ArticlesContext } from "../../hooks/useArticles";
-import { useLayout, LayoutContext } from "../../hooks/useLayout";
+import { useAppState, AppStateContext } from "../../hooks/useAppState";
+
+const queryClient = new QueryClient();
 
 const App = () => {
   const themeValues = useTheme();
-  const articlesValues = useArticles();
-  const layoutValues = useLayout();
+  const layoutValues = useAppState();
 
   return (
-    <ArticlesContext.Provider value={articlesValues}>
-      <LayoutContext.Provider value={layoutValues}>
+    <QueryClientProvider client={queryClient} contextSharing={true}>
+      <AppStateContext.Provider value={layoutValues}>
         <ThemeContext.Provider value={themeValues}>
           <ThemeProvider theme={themeValues.theme}>
             <CssBaseline />
@@ -26,8 +27,8 @@ const App = () => {
             </Layout>
           </ThemeProvider>
         </ThemeContext.Provider>
-      </LayoutContext.Provider>
-    </ArticlesContext.Provider>
+      </AppStateContext.Provider>
+    </QueryClientProvider>
   );
 };
 
