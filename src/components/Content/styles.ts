@@ -11,5 +11,7 @@ export const styles: Styles = {
       sm: `calc(100% - ${DRAWER_WIDTH}px)`,
     },
     height: "100%",
+    display: "flex",
+    flexDirection: "column",
   },
 };

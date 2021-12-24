@@ -11,6 +11,7 @@ export const styles: Styles = {
     justifyContent: "center",
     alignItems: "center",
     textAlign: "center",
+    flexShrink: "0",
     backgroundColor: (theme) => theme.palette.background.paper,
   },
 };
