@@ -11,6 +11,11 @@ const localization = {
   sidebar: {
     title: "Kategorien",
   },
+  Language: {
+    en: "Englisch",
+    es: "Spanisch",
+    de: "Deutsch",
+  },
 };
 
 export default localization;

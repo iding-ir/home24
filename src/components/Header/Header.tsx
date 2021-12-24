@@ -12,6 +12,7 @@ import { styles } from "./styles";
 import { AppStateContext } from "../../hooks/useAppState";
 import { useArticles } from "../../hooks/useArticles";
 import Theme from "../Theme/Theme";
+import Language from "../Language/Language";
 
 const Header = () => {
   const { t } = useTranslation();
@@ -54,6 +55,8 @@ const Header = () => {
         <Box sx={styles.pusher}></Box>
 
         <Theme />
+
+        <Language />
 
         <TextField
           label={t("Header.search")}
