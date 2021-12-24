@@ -1,10 +1,11 @@
 import React, { useContext } from "react";
 import { useTranslation } from "react-i18next";
 import AppBar from "@mui/material/AppBar";
-import Box from "@mui/material/Box";
+import LinearProgress from "@mui/material/LinearProgress";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import Toolbar from "@mui/material/Toolbar";
+import Box from "@mui/material/Box";
 
 import { styles } from "./styles";
 import { LayoutContext } from "../../hooks/useLayout";
@@ -34,12 +35,13 @@ const Header = () => {
         </IconButton>
 
         {categories.length ? (
-          <>
+          <Box>
             {categories[0].name}
+
             <small> ({categories[0].articleCount})</small>
-          </>
+          </Box>
         ) : (
-          "Loading..."
+          <LinearProgress sx={{ width: "100%" }} />
         )}
       </Toolbar>
     </AppBar>

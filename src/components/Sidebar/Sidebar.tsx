@@ -5,6 +5,7 @@ import Drawer from "@mui/material/Drawer";
 import Toolbar from "@mui/material/Toolbar";
 import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
+import LinearProgress from "@mui/material/LinearProgress";
 
 import { ArticlesContext } from "../../hooks/useArticles";
 import { LayoutContext } from "../../hooks/useLayout";
@@ -36,17 +37,19 @@ const Sidebar = () => {
 
       <Divider />
 
-      {categories.length
-        ? categories[0].childrenCategories.map(({ name, urlPath }) => {
-            return (
-              <Box sx={styles.link}>
-                <ListItem button key={urlPath}>
-                  <ListItemText>{name}</ListItemText>
-                </ListItem>
-              </Box>
-            );
-          })
-        : "Loading..."}
+      {categories.length ? (
+        categories[0].childrenCategories.map(({ name, urlPath }) => {
+          return (
+            <Box sx={styles.link}>
+              <ListItem button key={urlPath}>
+                <ListItemText>{name}</ListItemText>
+              </ListItem>
+            </Box>
+          );
+        })
+      ) : (
+        <LinearProgress sx={{ margin: "1rem" }} />
+      )}
     </>
   );
 
