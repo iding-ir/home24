@@ -1,4 +1,8 @@
 import React, { ReactNode } from "react";
+import Box from "@mui/material/Box";
+import Toolbar from "@mui/material/Toolbar";
+
+import { styles } from "./styles";
 
 interface IProps {
   children: ReactNode;
@@ -7,7 +11,13 @@ interface IProps {
 const Content = (props: IProps) => {
   const { children } = props;
 
-  return <div className={"content"}>{children}</div>;
+  return (
+    <Box component="main" sx={styles.main}>
+      <Toolbar />
+
+      {children}
+    </Box>
+  );
 };
 
 export default Content;

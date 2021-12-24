@@ -1,3 +1,5 @@
+import { SxProps, Theme } from "@mui/material/styles";
+
 export type Category = {
   name: string;
   categoryArticles: CategoryArticle;
@@ -31,3 +33,7 @@ export type Image = {
 export type CategoryArticle = {
   articles: Article[];
 };
+
+export interface Styles {
+  [key: string]: SxProps<Theme>;
+}

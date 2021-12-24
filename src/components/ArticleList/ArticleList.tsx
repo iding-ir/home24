@@ -1,8 +1,9 @@
 import React, { useContext } from "react";
+import Box from "@mui/material/Box";
 
 import ArticleCard from "../ArticleCard/ArticleCard";
-import "./ArticleList.css";
 import { ArticlesContext } from "../../hooks/useArticles";
+import { styles } from "./styles";
 
 const ArticleList = () => {
   const { categories } = useContext(ArticlesContext);
@@ -13,20 +14,7 @@ const ArticleList = () => {
     });
   });
 
-  return (
-    <>
-      {categories.length ? (
-        <h1>
-          {categories[0].name}
-          <small> ({categories[0].articleCount})</small>
-        </h1>
-      ) : (
-        "Loading..."
-      )}
-
-      <div className={"articles"}>{articles}</div>
-    </>
-  );
+  return <Box sx={styles.Articles}>{articles}</Box>;
 };
 
 export default ArticleList;
