@@ -2,6 +2,7 @@ import { Styles } from "../../types";
 
 export const styles: Styles = {
   language: {
+    margin: "0 0.5rem",
     width: { xs: "75px", sm: "150px" },
   },
   select: {
@@ -11,7 +12,7 @@ export const styles: Styles = {
       alignItems: "center",
       minWidth: "unset",
       padding: "0.2rem",
-      color: (theme) => theme.palette.secondary.main,
+      color: (theme) => theme.palette.text.primary,
 
       svg: {
         width: "32px",

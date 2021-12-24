@@ -43,10 +43,12 @@ const Header = () => {
         </IconButton>
 
         {categories?.length ? (
-          <Box>
+          <Box sx={styles.name}>
             {categories[0].name}
 
-            <small> ({categories[0].articleCount})</small>
+            <Box component="small" sx={styles.count}>
+              ({categories[0].articleCount})
+            </Box>
           </Box>
         ) : (
           <Skeleton variant="text" height={25} sx={{ width: "100px" }} />

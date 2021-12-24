@@ -17,4 +17,10 @@ export const styles: Styles = {
   pusher: {
     flexGrow: "10",
   },
+  name: {
+    display: { xs: "none", md: "block" },
+  },
+  count: {
+    margin: "0 0.5rem",
+  },
 };
