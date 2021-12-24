@@ -3,6 +3,7 @@ import { DRAWER_WIDTH } from "../../constants";
 
 export const styles: Styles = {
   main: {
+    position: "relative",
     flexGrow: 1,
     p: 3,
     width: {
