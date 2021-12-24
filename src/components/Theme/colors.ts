@@ -1,5 +1,5 @@
 export {
   orange as primary,
-  amber as secondary,
+  blueGrey as secondary,
   grey,
 } from "@mui/material/colors";

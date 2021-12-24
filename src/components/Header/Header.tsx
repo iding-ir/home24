@@ -62,9 +62,10 @@ const Header = () => {
 
         <TextField
           label={t("Header.search")}
-          variant="standard"
+          variant="filled"
           value={appState.searchKeyword}
           onChange={handleChangeSearch}
+          color="secondary"
         />
       </Toolbar>
     </AppBar>
