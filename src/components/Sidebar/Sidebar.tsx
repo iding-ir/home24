@@ -7,6 +7,7 @@ import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
 import { useTranslation } from "react-i18next";
 import Skeleton from "@mui/material/Skeleton";
+import { NavLink } from "react-router-dom";
 
 import { useArticles } from "../../hooks/useArticles";
 import { AppStateContext } from "../../hooks/useAppState";
@@ -46,9 +47,18 @@ const Sidebar = () => {
         ? categories[0].childrenCategories.map(({ name, urlPath }) => {
             return (
               <Box sx={styles.link} key={urlPath}>
-                <ListItem button>
-                  <ListItemText>{name}</ListItemText>
-                </ListItem>
+                <NavLink
+                  className={({ isActive }) => (isActive ? "is-selected" : "")}
+                  end
+                  to={urlPath}
+                  onClick={() => {
+                    setAppState({ ...appState, drawerOpen: false });
+                  }}
+                >
+                  <ListItem button>
+                    <ListItemText>{name}</ListItemText>
+                  </ListItem>
+                </NavLink>
               </Box>
             );
           })

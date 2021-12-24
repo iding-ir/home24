@@ -16,6 +16,10 @@ const localization = {
     es: "Español",
     de: "Alemán",
   },
+  NotFound: {
+    text: "¡Nada que ver!",
+    back: "Regresa",
+  },
 };
 
 export default localization;

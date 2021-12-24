@@ -2,6 +2,16 @@ import { Styles } from "../../types";
 import { DRAWER_WIDTH } from "../../constants";
 
 export const styles: Styles = {
+  link: {
+    a: {
+      color: (theme) => theme.palette.grey[600],
+      textDecoration: "none",
+      fontSize: "1rem",
+      "&.is-selected": {
+        color: (theme) => theme.palette.secondary.main,
+      },
+    },
+  },
   title: {
     fontSize: "1.2rem",
     display: "flex",

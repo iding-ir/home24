@@ -1,20 +1,17 @@
 import React from "react";
-import CssBaseline from "@mui/material/CssBaseline";
+import { HashRouter as Router } from "react-router-dom";
 
 import "../../localization";
-import Layout from "../Layout/Layout";
-import ArticleList from "../ArticleList/ArticleList";
+import Pages from "../Pages/Pages";
 import Providers from "../Providers/Providers";
 
 const App = () => {
   return (
-    <Providers>
-      <CssBaseline />
-
-      <Layout>
-        <ArticleList />
-      </Layout>
-    </Providers>
+    <Router>
+      <Providers>
+        <Pages />
+      </Providers>
+    </Router>
   );
 };
 
