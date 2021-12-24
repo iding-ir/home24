@@ -20,6 +20,10 @@ const localization = {
     text: "Nothing to see!",
     back: "Go Back",
   },
+  Titles: {
+    articleList: "Article list",
+    notFound: "Page not found",
+  },
 };
 
 export default localization;

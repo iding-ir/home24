@@ -9,7 +9,9 @@ import { styles } from "./styles";
 const Pages = () => {
   const renderRoutes = () => {
     return Object.values(routes).map((route) => {
-      return <Route path={route.path} element={route.element} />;
+      return (
+        <Route path={route.path} key={route.path} element={route.element} />
+      );
     });
   };
 

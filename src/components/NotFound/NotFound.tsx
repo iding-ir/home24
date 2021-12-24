@@ -4,18 +4,23 @@ import { Link } from "react-router-dom";
 
 import { styles } from "./styles";
 import * as URLS from "../../constants/urls";
+import Head from "../Head/Head";
 
 const NotFound = () => {
   const { t } = useTranslation();
 
   return (
-    <Box sx={styles.NotFound}>
-      <Box sx={styles.text}>{t("NotFound.text")}</Box>
+    <>
+      <Head title={t("Titles.notFound")} />
 
-      <Box sx={styles.back}>
-        <Link to={URLS.HOME}> {t("NotFound.back")}</Link>
+      <Box sx={styles.NotFound}>
+        <Box sx={styles.text}>{t("NotFound.text")}</Box>
+
+        <Box sx={styles.back}>
+          <Link to={URLS.HOME}> {t("NotFound.back")}</Link>
+        </Box>
       </Box>
-    </Box>
+    </>
   );
 };
 

@@ -1,14 +1,18 @@
 import { useContext } from "react";
 import Box from "@mui/material/Box";
 import Skeleton from "@mui/material/Skeleton";
+import { useTranslation } from "react-i18next";
 
 import ArticleCard from "../ArticleCard/ArticleCard";
 import { useArticles } from "../../hooks/useArticles";
 import { styles } from "./styles";
 import { Category } from "../../types";
 import { AppStateContext } from "../../hooks/useAppState";
+import Head from "../Head/Head";
 
 const ArticleList = () => {
+  const { t } = useTranslation();
+
   const { categories, isLoading } = useArticles();
 
   const { appState } = useContext(AppStateContext);
@@ -36,7 +40,13 @@ const ArticleList = () => {
           });
       });
 
-  return <Box sx={styles.Articles}>{articles}</Box>;
+  return (
+    <>
+      <Head title={t("Titles.articleList")} />
+
+      <Box sx={styles.Articles}>{articles}</Box>
+    </>
+  );
 };
 
 export default ArticleList;
