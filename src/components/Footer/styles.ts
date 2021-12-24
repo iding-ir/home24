@@ -10,6 +10,7 @@ export const styles: Styles = {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
+    textAlign: "center",
     backgroundColor: (theme) => theme.palette.background.paper,
   },
 };

@@ -10,5 +10,6 @@ export const styles: Styles = {
       xs: "100%",
       sm: `calc(100% - ${DRAWER_WIDTH}px)`,
     },
+    height: "100%",
   },
 };
