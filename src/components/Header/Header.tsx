@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, ChangeEvent } from "react";
 import { useTranslation } from "react-i18next";
 import AppBar from "@mui/material/AppBar";
 import Skeleton from "@mui/material/Skeleton";
@@ -21,6 +21,10 @@ const Header = () => {
 
   const handleToggle = () => {
     setAppState({ ...appState, drawerOpen: true });
+  };
+
+  const handleChangeSearch = (event: ChangeEvent<HTMLInputElement>) => {
+    setAppState({ ...appState, searchKeyword: event.target.value });
   };
 
   return (
@@ -48,7 +52,12 @@ const Header = () => {
 
         <Box sx={styles.pusher}></Box>
 
-        <TextField label={t("Header.search")} variant="standard" />
+        <TextField
+          label={t("Header.search")}
+          variant="standard"
+          value={appState.searchKeyword}
+          onChange={handleChangeSearch}
+        />
       </Toolbar>
     </AppBar>
   );

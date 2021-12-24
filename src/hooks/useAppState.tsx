@@ -2,10 +2,12 @@ import { useState, createContext } from "react";
 
 export interface AppState {
   drawerOpen: boolean;
+  searchKeyword: string;
 }
 
 const iAppState = {
   drawerOpen: false,
+  searchKeyword: "",
 };
 
 interface IAppStateContext {
