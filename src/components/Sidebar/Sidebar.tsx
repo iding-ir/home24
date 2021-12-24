@@ -6,6 +6,7 @@ import Toolbar from "@mui/material/Toolbar";
 import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
 import LinearProgress from "@mui/material/LinearProgress";
+import { useTranslation } from "react-i18next";
 
 import { ArticlesContext } from "../../hooks/useArticles";
 import { LayoutContext } from "../../hooks/useLayout";
@@ -14,6 +15,8 @@ import { styles } from "./styles";
 import { useTheme } from "../Theme/useTheme";
 
 const Sidebar = () => {
+  const { t } = useTranslation();
+
   const { categories } = useContext(ArticlesContext);
   const { drawerOpen, setDrawerOpen } = useContext(LayoutContext);
 
@@ -32,7 +35,8 @@ const Sidebar = () => {
             fill={theme.palette.primary.light}
           />
         </Box>
-        Kategorien
+
+        {t("Sidebar.title")}
       </Toolbar>
 
       <Divider />

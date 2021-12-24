@@ -2,6 +2,7 @@ import React from "react";
 import { ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 
+import "../../localization";
 import Layout from "../Layout/Layout";
 import ArticleList from "../ArticleList/ArticleList";
 import { useTheme, ThemeContext } from "../Theme/useTheme";
