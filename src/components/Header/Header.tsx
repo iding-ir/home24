@@ -11,6 +11,7 @@ import TextField from "@mui/material/TextField";
 import { styles } from "./styles";
 import { AppStateContext } from "../../hooks/useAppState";
 import { useArticles } from "../../hooks/useArticles";
+import Theme from "../Theme/Theme";
 
 const Header = () => {
   const { t } = useTranslation();
@@ -51,6 +52,8 @@ const Header = () => {
         )}
 
         <Box sx={styles.pusher}></Box>
+
+        <Theme />
 
         <TextField
           label={t("Header.search")}

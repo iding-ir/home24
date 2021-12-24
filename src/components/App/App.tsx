@@ -12,7 +12,7 @@ import { useAppState, AppStateContext } from "../../hooks/useAppState";
 const queryClient = new QueryClient();
 
 const App = () => {
-  const themeValues = useTheme();
+  const themeValues = useTheme("light");
   const layoutValues = useAppState();
 
   return (
