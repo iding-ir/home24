@@ -11,7 +11,11 @@ const ArticleList = () => {
   const { categories, isLoading } = useArticles();
 
   const articles = isLoading
-    ? Array(8).fill(<Skeleton variant="rectangular" height={160} />)
+    ? Array(8)
+        .fill(null)
+        .map((item, index) => (
+          <Skeleton variant="rectangular" height={160} key={index} />
+        ))
     : categories?.map((category: Category) => {
         return category.categoryArticles.articles.map((article) => {
           return (

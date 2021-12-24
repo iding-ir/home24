@@ -15,11 +15,12 @@ import { useArticles } from "../../hooks/useArticles";
 const Header = () => {
   const { t } = useTranslation();
 
-  const { setDrawerOpen } = useContext(AppStateContext);
+  const { appState, setAppState } = useContext(AppStateContext);
+
   const { categories } = useArticles();
 
   const handleToggle = () => {
-    setDrawerOpen(true);
+    setAppState({ ...appState, drawerOpen: true });
   };
 
   return (

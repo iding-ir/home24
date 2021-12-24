@@ -18,12 +18,13 @@ const Sidebar = () => {
   const { t } = useTranslation();
 
   const { categories } = useArticles();
-  const { drawerOpen, setDrawerOpen } = useContext(AppStateContext);
+
+  const { appState, setAppState } = useContext(AppStateContext);
 
   const { theme } = useTheme();
 
   const handleToggle = () => {
-    setDrawerOpen(true);
+    setAppState({ ...appState, drawerOpen: !appState.drawerOpen });
   };
 
   const drawer = (
@@ -51,13 +52,16 @@ const Sidebar = () => {
               </Box>
             );
           })
-        : Array(8).fill(
-            <Skeleton
-              variant="rectangular"
-              height={25}
-              sx={{ margin: "1rem", marginBottom: "0" }}
-            />
-          )}
+        : Array(8)
+            .fill(null)
+            .map((item, index) => (
+              <Skeleton
+                variant="rectangular"
+                height={25}
+                sx={{ margin: "1rem", marginBottom: "0" }}
+                key={index}
+              />
+            ))}
     </>
   );
 
@@ -65,7 +69,7 @@ const Sidebar = () => {
     <Box component="nav" sx={styles.nav}>
       <Drawer
         variant="temporary"
-        open={drawerOpen}
+        open={appState.drawerOpen}
         onClose={handleToggle}
         ModalProps={{
           keepMounted: true,

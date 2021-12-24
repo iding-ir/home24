@@ -1,17 +1,25 @@
 import { useState, createContext } from "react";
 
-interface IAppStateContext {
+export interface AppState {
   drawerOpen: boolean;
-  setDrawerOpen: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const iAppState = {
+  drawerOpen: false,
+};
+
+interface IAppStateContext {
+  appState: AppState;
+  setAppState: React.Dispatch<React.SetStateAction<AppState>>;
 }
 
 export const AppStateContext = createContext<IAppStateContext>({
-  drawerOpen: false,
-  setDrawerOpen: () => {},
+  appState: iAppState,
+  setAppState: () => {},
 });
 
 export const useAppState = () => {
-  const [drawerOpen, setDrawerOpen] = useState(false);
+  const [appState, setAppState] = useState(iAppState);
 
-  return { drawerOpen, setDrawerOpen };
+  return { appState, setAppState };
 };
