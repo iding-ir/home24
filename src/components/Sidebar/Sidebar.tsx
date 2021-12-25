@@ -17,7 +17,7 @@ import { styles } from "./styles";
 const Sidebar = () => {
   const { t } = useTranslation();
 
-  const { categories } = useArticles();
+  const { categories, isLoading } = useArticles();
 
   const { appState, setAppState } = useContext(AppStateContext);
 
@@ -37,7 +37,7 @@ const Sidebar = () => {
 
       <Divider />
 
-      {categories?.length
+      {categories?.length && !isLoading
         ? categories[0].childrenCategories.map(({ name, urlPath }) => {
             return (
               <Box sx={styles.link} key={urlPath}>
