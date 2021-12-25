@@ -44,7 +44,9 @@ const ArticleList = () => {
     <>
       <Head title={t("Titles.articleList")} />
 
-      <Box sx={styles.Articles}>{articles}</Box>
+      <Box sx={styles.Articles} data-testid="ARTICLES">
+        {articles}
+      </Box>
     </>
   );
 };

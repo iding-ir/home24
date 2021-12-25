@@ -21,7 +21,7 @@ const ArticleCard = (props: IArticleCard) => {
   const { t } = useTranslation();
 
   return (
-    <Card sx={styles.Card}>
+    <Card sx={styles.Card} data-testid="CARD">
       <CardMedia
         component="img"
         height="140"

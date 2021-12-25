@@ -21,7 +21,9 @@ export const useLanguage = (defaultLanguage?: string) => {
   const [language, setLanguage] = useState(iLanguage);
 
   useEffect(() => {
-    i18n.changeLanguage(language);
+    if (i18n && i18n.changeLanguage) {
+      i18n.changeLanguage(language);
+    }
 
     localStorage.setItem("language", language);
   }, [i18n, language]);

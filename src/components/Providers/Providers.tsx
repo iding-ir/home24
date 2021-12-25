@@ -7,13 +7,13 @@ import { useTheme, ThemeContext } from "../Theme/useTheme";
 import { useLanguage, LanguageContext } from "../Language/useLanguage";
 import { useAppState, AppStateContext } from "../../hooks/useAppState";
 
-const queryClient = new QueryClient();
-
 interface IProps {
   children: ReactNode;
 }
 
 const Providers = ({ children }: IProps) => {
+  const queryClient = new QueryClient();
+
   const themeValues = useTheme("light");
   const languageValues = useLanguage("de");
   const appStateValues = useAppState();
